@@ -1,10 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AutoComplete from "./components/AutoComplete";
+
+import React, { useState } from "react";
+import AutoCompleteService from "./services/AutoCompleteService";
 
 function App() {
+  const [country, setCountry] = useState("");
   return (
     <div className="App">
-      Hello world
+      <div className="App-auto-complete">
+        Country selected: {country}
+        <AutoComplete
+          placeholder="Countries"
+          value={country}
+          onChange={setCountry}
+          getSuggestions={AutoCompleteService.getSuggestions}
+        />
+      </div>
     </div>
   );
 }

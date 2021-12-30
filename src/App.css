@@ -1,0 +1,11 @@
+.App {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-auto-complete {
+  width: 100%;
+  max-width: 300px;
+}
