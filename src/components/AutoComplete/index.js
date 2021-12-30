@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./AutoComplete.css";
+import Suggestion from "./Suggestion";
 
 export default function AutoComplete({ getSuggestions, onChange, ...props }) {
   const lastRequestId = useRef(null);
@@ -51,9 +52,11 @@ export default function AutoComplete({ getSuggestions, onChange, ...props }) {
         <ul className="AutoComplete-suggestions">
           {suggestions.map((suggestion, id) => (
             <li className="AutoComplete-suggestions-item" key={suggestion.key}>
-              <a onMouseDown={() => onChange(suggestion.name)}>
-                {suggestion.name}
-              </a>
+              <Suggestion
+                highlightText={props.value}
+                title={suggestion.name}
+                onMouseDown={() => onChange(suggestion.name)}
+              />
             </li>
           ))}
         </ul>
